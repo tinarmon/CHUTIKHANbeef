@@ -1,0 +1,200 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+@source '../js/**/*.js';
+
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('/fonts/ibm-plex-sans-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('/fonts/ibm-plex-sans-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/ibm-plex-mono-400-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/ibm-plex-mono-400-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/ibm-plex-mono-500-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/ibm-plex-mono-500-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@theme {
+    --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+    /* NASA Draft 01 */
+    --color-space: #000000;
+    --color-obsidian: #17171B;
+    --color-paper: #FFFFFF;
+    --color-mist: #F1F2F5;
+    --color-ink: #17171B;
+    --color-muted: #4B4E54;
+    --color-muted-dark: #C8CCD4;
+    --color-signal: #C92B1B;
+    --color-signal-hover: #A82215;
+    --color-mission: #0B3D91;
+    /* Apple Draft 02 */
+    --color-apple-bg: #F5F5F7;
+    --color-apple-ink: #1D1D1F;
+    --color-apple-muted: #515154;
+    --color-apple-blue: #0071E3;
+    --color-apple-blue-hover: #0077ED;
+    --color-apple-link: #0066CC;
+    --color-apple-link-dark: #2997FF;
+    --color-apple-line: #D2D2D7;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 {
+        text-wrap: balance;
+    }
+
+    p, dd {
+        text-wrap: pretty;
+    }
+
+    html.theme-nasa {
+        background-color: #000000;
+        color: #FFFFFF;
+        caret-color: #C92B1B;
+    }
+
+    html.theme-apple {
+        background-color: #FFFFFF;
+        color: #1D1D1F;
+        caret-color: #0071E3;
+    }
+
+    .theme-nasa ::selection {
+        background-color: #C92B1B;
+        color: #FFFFFF;
+    }
+
+    .theme-apple ::selection {
+        background-color: #0071E3;
+        color: #FFFFFF;
+    }
+
+    .theme-nasa :focus-visible {
+        outline: 2px solid #C92B1B;
+        outline-offset: 3px;
+    }
+
+    .theme-apple :focus-visible {
+        outline: 2px solid #0071E3;
+        outline-offset: 3px;
+    }
+
+    a {
+        text-underline-offset: 4px;
+    }
+
+    .theme-nasa::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .theme-nasa::-webkit-scrollbar-track {
+        background: #0D0E12;
+    }
+
+    .theme-nasa::-webkit-scrollbar-thumb {
+        background: #3C404C;
+    }
+
+    .theme-nasa::-webkit-scrollbar-thumb:hover {
+        background: #C92B1B;
+    }
+
+    .theme-apple::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .theme-apple::-webkit-scrollbar-track {
+        background: #F5F5F7;
+    }
+
+    .theme-apple::-webkit-scrollbar-thumb {
+        background: #C5C5CB;
+        border-radius: 9999px;
+        border: 2px solid #F5F5F7;
+    }
+
+    .theme-apple::-webkit-scrollbar-thumb:hover {
+        background: #0071E3;
+    }
+}
+
+.theme-apple [data-award-dot] {
+    border-color: #D2D2D7;
+    background-color: transparent;
+    color: #515154;
+}
+
+.theme-apple [data-award-dot][aria-pressed="true"] {
+    border-color: #1D1D1F;
+    background-color: #1D1D1F;
+    color: #FFFFFF;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+.tabular-nums {
+    font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
